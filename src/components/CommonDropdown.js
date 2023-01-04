@@ -5,6 +5,8 @@ function CommonDropdown({
   options,
   isBangladesh,
   section,
+  setAvailable,
+  isAvailable
 }) {
   const [isActive, setIsActive] = useState(false);
   const [searchValue,setSearchValue] = useState("")
@@ -34,9 +36,9 @@ function CommonDropdown({
   return (
     <div
       className="dropdown"
-      style={{  pointerEvents: isBangladesh === "Bangladesh" ? "" : "none" }}
+      style={{  pointerEvents: isBangladesh === "Bangladesh" && isAvailable  ? "" : "none" }}
     >
-      <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)} style={{backgroundColor: isBangladesh === "Bangladesh" ? "" : "#C0C0C0"}}>
+      <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)} style={{backgroundColor: isBangladesh === "Bangladesh" && isAvailable ? "" : "#C0C0C0"}}>
         {selected}
        
       </div>
@@ -59,6 +61,7 @@ function CommonDropdown({
                     }
                   });
                   setIsActive(false);
+                  setAvailable(true);
                 }}
                 className="dropdown-item"
                 key={_id}

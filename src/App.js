@@ -5,7 +5,7 @@
 */
 import "./App.css";
 import { useEffect, useState } from "react";
-import Dropdown from "./components/Dropdown";
+import CountryDropdown from "./components/CountryDropdown";
 import CommonDropdown from "./components/CommonDropdown";
 import totalCountry from "./countryData/totalCountry";
 
@@ -21,7 +21,13 @@ function App() {
   const [billingHouseNo, setBillingHouseNo] = useState("");
   const [billingPhoneNo, setBillingPhoneNo] = useState("");
   const [billingFax, setBillingFax] = useState("");
-
+  // AVAILABLE 
+  const [billingdivisionAvailable, setBillingdivisionAvailable] = useState(false);
+  const [billingdistrictAvailable, setBillingdistrictAvailable] = useState(false);
+  const [billingupazillaAvailable, setBillingupazillaAvailable] = useState(false);
+  const [shippingdivisionAvailable, setShippingdivisionAvailable] = useState(false);
+  const [shippingdistrictAvailable, setShippingdistrictAvailable] = useState(false);
+  const [shippingupazillaAvailable, setShippingupazillaAvailable] = useState(false);
   // SHIPPING STATE
   const [shippingName, setShippingName] = useState("");
   const [shippingcountryselected, setShippingCountrySelected] =
@@ -90,6 +96,9 @@ function App() {
     setShippingHouseNo(billingHouseNo);
     setShippingPhoneNo(billingPhoneNo);
     setShippingFax(billingFax);
+    setShippingdivisionAvailable(true);
+    setShippingdistrictAvailable(true);
+    setShippingupazillaAvailable(true);
   };
   const handleSubmit=()=>{
      const billing={
@@ -131,10 +140,12 @@ function App() {
             <br></br>
             <label>Country</label>
             <br></br>
-            <Dropdown
+            <CountryDropdown
               selected={countryselected}
               setSelected={setCountrySelected}
               options={totalCountry}
+           
+              setAvailable={setBillingdivisionAvailable}
             />
             <label>Division/province/state</label>
             <br></br>
@@ -144,6 +155,9 @@ function App() {
               setSelected={setDivisionSelected}
               options={division}
               section="division"
+              isAvailable={billingdivisionAvailable}
+              setAvailable={setBillingdistrictAvailable}
+              
             />
             <br></br>
             <label>District</label>
@@ -154,6 +168,8 @@ function App() {
               setSelected={setDistrictSelected}
               options={district}
               section="district"
+              isAvailable={billingdistrictAvailable}
+              setAvailable={setBillingupazillaAvailable}
             />
             <br></br>
             <label>Thana/upazilla</label>
@@ -164,6 +180,7 @@ function App() {
               setSelected={setUpazillaSelected}
               options={getUpazilla()}
               section="upazilla"
+              isAvailable={billingupazillaAvailable}
             />
             <br></br>
             <label>Zip code</label>
@@ -199,6 +216,7 @@ function App() {
             />
           </form>
         </div>
+        {/* BILLING PART */}
         <div className="shipping-section">
           <div className="shipping-header">
             <h5>SHIPPING ADDRESS</h5>
@@ -219,10 +237,11 @@ function App() {
             <br></br>
             <label>Country</label>
             <br></br>
-            <Dropdown
+            <CountryDropdown
               selected={shippingcountryselected}
               setSelected={setShippingCountrySelected}
-              options={totalCountry}
+              options={totalCountry}  
+              setAvailable={setShippingdivisionAvailable}
             />
             <label>Division/province/state</label>
             <br></br>
@@ -232,6 +251,8 @@ function App() {
               setSelected={setShippingDivisionSelected}
               options={division}
               section="division"
+              isAvailable={shippingdivisionAvailable}   
+              setAvailable={setShippingdistrictAvailable}
             />
             <br></br>
             <label>District</label>
@@ -242,6 +263,8 @@ function App() {
               setSelected={setShippingDistrictSelected}
               options={district}
               section="district"
+              isAvailable={shippingdistrictAvailable}
+              setAvailable={setShippingupazillaAvailable} 
             />
             <br></br>
             <label>Thana/upazilla</label>
@@ -252,6 +275,7 @@ function App() {
               setSelected={setShippingUpazillaSelected}
               options={getShippingUpazilla()}
               section="upazilla"
+              isAvailable={shippingupazillaAvailable}
             />
             <br></br>
             <label>Zip code</label>
