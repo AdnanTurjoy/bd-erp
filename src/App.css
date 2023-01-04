@@ -37,48 +37,63 @@
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .main-section{
 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    grid-gap: 90px;
+    background-color: #dfe0e2;
+    
+  }
+  
+  .billing-section{
+    width: 100%;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    margin-left: 20px;
+  }
+  .shipping-section{
+    width: 100%;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    margin-bottom: 10px;
+  }
+}
 .main-section{
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 10px;
-  grid-gap: 10px;
   background-color: #dfe0e2;
-  border: 20px solid gray;
+padding: 50px;
   
 }
 
-.billing-section{
-  padding-left: 20px;
-}
 .copy-address{
   cursor: pointer;
-  color: blue;
+  color: rgb(21, 21, 248);
   text-decoration: underline;
 }
 .shipping-header{
   display: flex;
- 
+  
 }
-.shipping-header h5{
-  margin-right: 8px;
+.shipping-header h3{
+  margin-right: 7px;
 }
+
 label{
   font-weight: 600;
   color: rgb(15, 15, 15);
 }
 input{
-  width:65%;
+  width:100%;
   padding: 4px 5px;
-  font-weight: 400;
+  font-size: 14px;
   color: rgb(44, 44, 44);
-  font-weight: 600;
 
   border-radius: 2px;
 }
 .dropdown {
-  width: 400px;
+  width: 100%;
   user-select: none;
 }
 .dropdown .dropdown-btn {
@@ -96,7 +111,7 @@ input{
 }
 ::placeholder {
   padding: 0px 3px;
-  font-weight: 600;
+  font-weight: 300;
   color: #333;
 }
 .dropdown .dropdown-content {
@@ -110,6 +125,9 @@ input{
   border-radius: 5px;
    
 }
+.dropdown-content input{
+  width: 95%;
+}
 .dropdown .dropdown-content .dropdown-item {
 
   padding: 5px;
@@ -119,9 +137,14 @@ input{
 .dropdown .dropdown-content .dropdown-item:hover {
   color: #099604;
 }
+.submit-button{
+margin: 10px;
+  text-align: center;
+}
 button{
-  width: 200px;
+  width: 100px;
   padding: 10px 0px;
+  
 }
 
 button:hover{

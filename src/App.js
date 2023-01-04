@@ -126,8 +126,12 @@ function App() {
   return (
     <div className="article">
       <div className="main-section">
+         {/* BILLING PART */}
         <div className="billing-section">
-          <h5>BILLING ADDRESS</h5>
+        <div className="shipping-header">
+            <h3>BILLING ADDRESS</h3>
+          </div>
+       
           <h5> Attention</h5>
           <form>
             <label></label>
@@ -139,7 +143,7 @@ function App() {
             />
             <br></br>
             <label>Country</label>
-            <br></br>
+   
             <CountryDropdown
               selected={countryselected}
               setSelected={setCountrySelected}
@@ -148,7 +152,7 @@ function App() {
               setAvailable={setBillingdivisionAvailable}
             />
             <label>Division/province/state</label>
-            <br></br>
+         
             <CommonDropdown
               isBangladesh={countryselected}
               selected={divisionSelected}
@@ -159,9 +163,9 @@ function App() {
               setAvailable={setBillingdistrictAvailable}
               
             />
-            <br></br>
+      
             <label>District</label>
-            <br></br>
+         
             <CommonDropdown
               isBangladesh={countryselected}
               selected={districtSelected}
@@ -171,9 +175,9 @@ function App() {
               isAvailable={billingdistrictAvailable}
               setAvailable={setBillingupazillaAvailable}
             />
-            <br></br>
+        
             <label>Thana/upazilla</label>
-            <br></br>
+   
             <CommonDropdown
               isBangladesh={countryselected}
               selected={upazillaSelected}
@@ -182,33 +186,33 @@ function App() {
               section="upazilla"
               isAvailable={billingupazillaAvailable}
             />
-            <br></br>
+      
             <label>Zip code</label>
-            <br></br>
+         
             <input
               type="text"
               placeholder=""
               onChange={(e) => setBillingZipCode(e.target.value)}
             />
-            <br></br>
+           
             <label>House/apertment no.</label>
-            <br></br>
+       
             <input
               type="text"
               placeholder=""
               onChange={(e) => setBillingHouseNo(e.target.value)}
             />
-            <br></br>
+         
             <label>Phone</label>
-            <br></br>
+     
             <input
               type="text"
               placeholder=""
               onChange={(e) => setBillingPhoneNo(e.target.value)}
             />
-            <br></br>
+        
             <label>Fax</label>
-            <br></br>
+     
             <input
               type="text"
               placeholder=""
@@ -216,10 +220,10 @@ function App() {
             />
           </form>
         </div>
-        {/* BILLING PART */}
+        {/* SHIPPING PART */}
         <div className="shipping-section">
           <div className="shipping-header">
-            <h5>SHIPPING ADDRESS</h5>
+            <h3>SHIPPING ADDRESS</h3>
             <h5 className="copy-address" onClick={copyBill}>
             ⬇️ Copy billing address
             </h5>
@@ -234,9 +238,9 @@ function App() {
               onChange={(e) => setShippingName(e.target.value)}
               value={shippingName}
             />
-            <br></br>
+       
             <label>Country</label>
-            <br></br>
+     
             <CountryDropdown
               selected={shippingcountryselected}
               setSelected={setShippingCountrySelected}
@@ -244,7 +248,7 @@ function App() {
               setAvailable={setShippingdivisionAvailable}
             />
             <label>Division/province/state</label>
-            <br></br>
+       
             <CommonDropdown
               isBangladesh={shippingcountryselected}
               selected={shippingdivisionSelected}
@@ -254,9 +258,9 @@ function App() {
               isAvailable={shippingdivisionAvailable}   
               setAvailable={setShippingdistrictAvailable}
             />
-            <br></br>
+         
             <label>District</label>
-            <br></br>
+      
             <CommonDropdown
               isBangladesh={shippingcountryselected}
               selected={shippingdistrictSelected}
@@ -266,9 +270,9 @@ function App() {
               isAvailable={shippingdistrictAvailable}
               setAvailable={setShippingupazillaAvailable} 
             />
-            <br></br>
+       
             <label>Thana/upazilla</label>
-            <br></br>
+         
             <CommonDropdown
               isBangladesh={shippingcountryselected}
               selected={shippingupazillaSelected}
@@ -277,36 +281,36 @@ function App() {
               section="upazilla"
               isAvailable={shippingupazillaAvailable}
             />
-            <br></br>
+        
             <label>Zip code</label>
-            <br></br>
+        
             <input
               type="text"
               placeholder=""
               onChange={(e) => setShippingZipCode(e.target.value)}
               value={shippingzipCode}
             />
-            <br></br>
+  
             <label>House/apertment no.</label>
-            <br></br>
+       
             <input
               type="text"
               placeholder=" "
               onChange={(e) => setShippingHouseNo(e.target.value)}
               value={shippingHouseNo}
             />
-            <br></br>
+      
             <label>Phone</label>
-            <br></br>
+        
             <input
               type="text"
               placeholder=""
               onChange={(e) => setShippingPhoneNo(e.target.value)}
               value={shippingPhoneNo}
             />
-            <br></br>
+        
             <label>Fax</label>
-            <br></br>
+       
             <input
               type="text"
               placeholder=""
@@ -316,9 +320,13 @@ function App() {
           </form>
         </div>
         <br></br>
-        <button onClick={handleSubmit}>Submit</button>
+       
         
       </div>
+      <div className="submit-button">
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+      
     </div>
   );
 }
